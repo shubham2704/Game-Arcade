@@ -1,0 +1,6 @@
+The project is live at : http://connectfourdemo.surge.sh/
+
+-------x--------x--------x--------x--------x------x------x
+
+1. unzip the folder
+2. open index.html

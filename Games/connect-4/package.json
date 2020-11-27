@@ -1,0 +1,34 @@
+{
+  "name": "connect-4",
+  "version": "1.0.0",
+  "description": "Implementation of classic connect 4 in javascript.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubham2704/connect-4.git"
+  },
+  "keywords": [
+    "connect4",
+    "game",
+    "arcade",
+    "game"
+  ],
+  "author": "Shubham Goswami",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shubham2704/connect-4/issues"
+  },
+  "homepage": "https://github.com/shubham2704/connect-4#readme",
+  "devDependencies": {
+    "git-scripts": "^0.4.3",
+    "surge": "^0.21.6"
+  },
+  "git": {
+    "scripts": {
+      "pre-push": "surge --project ./ --domain connectfourdemo.surge.sh"
+    }
+  }
+}

@@ -1,0 +1,328 @@
+/* Hosting special section */
+
+img[alt$="www.000webhost.com"] { display: none; } /* for 000webhost */
+
+/* Fonts on my hosting */
+@font-face {
+	font-family: roboto;
+	src: url(./roboto/Roboto-Regular.ttf);
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: roboto;
+	src: url(./roboto/Roboto-Bold.ttf);
+	font-weight: bold;
+}
+
+/* End of hosting special section */
+
+:root {
+	--size: 100px;
+	--radius: 5px;
+	--spacing: 13px;
+	--font-size: 27px;
+
+	--timing-function: ease;
+	--transition: .2s;
+	--transition-move: .1s;
+
+	--container-width: calc(var(--size) * var(--width) + var(--spacing) * (var(--width) - 1));
+	--container-height: calc(var(--size) * var(--height) + var(--spacing) * (var(--height) - 1));
+
+	--light1: white;
+	--light2: #aaa;
+	--dark: #121212;
+	--light-transparent: #fffa;
+	--dark-transparent: #555a;
+	--color-field-light: #aaa;
+	--color-block-light: #bbb;
+	--color-field-dark: #444;
+	--color-block-dark: #555;
+}
+
+body, .block, .message {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+body.dark {
+	--light: var(--light2);
+	--color1: var(--light);
+	--color2: var(--dark);
+	--color1-transparent: var(--light-transparent);
+	--color2-transparent: var(--dark-transparent);
+	--color-field: var(--color-field-dark);
+	--color-block: var(--color-block-dark);
+}
+
+body {
+	--light: var(--light1);
+	--color1: var(--dark);
+	--color2: var(--light);
+	--color1-transparent: var(--dark-transparent);
+	--color2-transparent: var(--light-transparent);
+	--color-field: var(--color-field-light);
+	--color-block: var(--color-block-light);
+
+	margin: 0;
+	height: 100vh;
+
+	background: var(--color2);
+}
+
+* {
+	font-family: roboto;
+	font-size: var(--font-size);
+	color: var(--color1);
+	transition-property: color, background;
+	transition-duration: var(--transition);
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.container > * {
+	margin: 6px 0;
+}
+
+.button {
+	margin: 0 10px;
+	font-weight: bold;
+
+	cursor: pointer;
+	user-select: none;
+}
+
+.button.disabled {
+	cursor: default;
+	filter: opacity(.6);
+}
+
+.message .button, .settings .button {
+	margin: 15px calc(var(--spacing) / 2);
+	padding: 5px 10px;
+
+	border-radius: var(--radius);
+	background: var(--color1);
+	color: var(--color2);
+}
+
+.message .button {
+	font-size: calc(var(--font-size) * .9);
+}
+
+.horizontal-menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.horizontal-menu.buttons {
+	justify-content: space-around;
+}
+
+.settings {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.settings > .horizontal-menu {
+	margin: 6px;
+	width: 100%;
+}
+
+.settings > * {
+	margin: 10px 0;
+}
+
+input {
+	border-radius: var(--radius);
+	border: none;
+	outline: none;
+	margin: 0 10px;
+	padding: 5px 10px;
+	width: 30px;
+	font-size: 25px;
+	background: var(--color2);
+	color: var(--color1);
+}
+
+/* Hide number input arrows */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+.theme-switcher {
+	display: none;
+}
+
+.theme-switcher + label[for="theme-switcher"] {
+	margin: 0 10px;
+	cursor: pointer;
+}
+
+.theme-switcher + label[for="theme-switcher"]::before {
+	content: "Light";
+}
+
+.theme-switcher:checked + label[for="theme-switcher"]::before {
+	content: "Dark";
+}
+
+.field-container {
+	position: relative;
+	width: calc(var(--container-width) + var(--spacing) * 2);
+	height: calc(var(--container-height) + var(--spacing) * 2);
+	user-select: none;
+}
+
+.field-container > * {
+	position: absolute;
+	padding: var(--spacing);
+	border-radius: var(--radius);
+	width: var(--container-width);
+	height: var(--container-height);
+}
+
+.message {
+	background: var(--color2-transparent);
+	text-align: center;
+	transition: .3s;
+}
+
+.message h1 {
+	font-size: 60px;
+	margin: 0;
+}
+
+.message.hidden {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.field.bg {
+	display: grid;
+	grid-template-rows: repeat(var(--height), 1fr);
+	grid-template-columns: repeat(var(--width), 1fr);
+	grid-gap: var(--spacing);
+}
+
+.bg {
+	background: var(--color-field);
+}
+
+.bg .block {
+	background: var(--color-block);
+}
+
+.block {
+	width: var(--width);
+	height: var(--height);
+	border-radius: var(--radius);
+	user-select: none;
+}
+
+@keyframes block-appear-animation {
+	0% {
+		opacity: 0;
+		transform: scaleX(0) scaleY(0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scaleX(1) scaleY(1);
+	}
+}
+
+@keyframes block-delete-animation {
+	0% {
+		opacity: 1;
+		transform: scaleX(1) scaleY(1);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scaleX(0) scaleY(0);
+	}
+}
+
+@keyframes block-merge-animation {
+	0% {
+		opacity: 0;
+		transform: scaleX(0) scaleY(0);
+	}
+
+	50% {
+		opacity: 1;
+		transform: scaleX(1.1) scaleY(1.1);
+	}
+
+	100% {
+		transform: scaleX(1) scaleY(1);
+	}
+}
+
+@keyframes block-unmerge-animation {
+	0% {
+		transform: scaleX(1) scaleY(1);
+	}
+
+	30% {
+		opacity: 1;
+		transform: scaleX(1.1) scaleY(1.1);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scaleX(0) scaleY(0);
+	}
+}
+
+@keyframes block-unmerge-1-animation {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.block {
+	transition: var(--transition-move);
+}
+.field:not(.bg) .block {
+	position: absolute;
+	animation: var(--transition) var(--timing-function) 0s 1 block-appear-animation;
+}
+
+.field:not(.bg) .block.merge {
+	animation: var(--transition) var(--timing-function) 0s 1 block-merge-animation;
+}
+
+.field:not(.bg) .block.unmerge {
+	animation: var(--transition) var(--timing-function) 0s 1 block-unmerge-animation;
+}
+
+.field:not(.bg) .block.unmerge-1 {
+	animation: var(--transition) var(--timing-function) 0s 1 block-unmerge-1-animation;
+}
+
+.field:not(.bg) .block.delete {
+	animation: var(--transition) var(--timing-function) 0s 1 block-delete-animation;
+}

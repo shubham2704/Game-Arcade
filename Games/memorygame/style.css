@@ -1,0 +1,217 @@
+/* Memory Game Project 
+420-423-DW Internet AppsII - Teacher: L. Ruhlmannn
+Dawson College Winter 2019 Section 02
+Camillia Elachqar 1738572*/
+
+
+/***************************************************************************************************************************************/
+/* WHOLE PAGE */
+/***************************************************************************************************************************************/
+/* The following style is used to remove default settings on all elements made by browsers  */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* The following style is used to eliminate some height issues in some browsers */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-image: url(images/cartoon-sun-light.jpg);
+    background-size: cover;
+    background-color: RGB(126, 217, 238);
+    background-repeat: no-repeat;
+
+    text-align: center;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+h1,
+h2 {
+    font-family: Verdana, Geneva, sans-serif;
+    font-variant: small-caps;
+}
+
+/***************************************************************************************************************************************/
+/*Header and Footer*/
+/***************************************************************************************************************************************/
+header {
+    width: 100%;
+    color: aliceblue;
+    font-size: 3em;
+
+    font-weight: 300;
+    display: block;
+    height: 125px;
+}
+
+footer {
+    clear: both;
+    width: 100%;
+    height: 10%;
+    min-height: 10%;
+
+}
+
+
+/***************************************************************************************************************************************/
+/*Game Grid*/
+/***************************************************************************************************************************************/
+
+#game-grid {
+    margin-top: 0;
+    align-self: center;
+    text-align: center;
+}
+
+#grid-container {
+    border: 18px solid #e0eaf9;
+    border-radius: 10px 10px 0px 0px;
+
+    width: 640px;
+
+    height: 640px;
+    /*600px + 8* 5px of padding*/
+
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+
+    background-image: url(images/branch-bird.png);
+    background-size: 600px;
+    margin-right: auto;
+    margin-left: auto;
+
+    /*background-image: url(images/brown-bird.jpg);
+    background-size: 525px;*/
+    /*background-image: url(images/chick_baby_cute_easter_blue.png);
+    background-size: 450px;*/
+    /*background-image: url(images/pink-silly-bird.jpg);
+    background-size: 600px;*/
+    /*background-image: url(images/yellow-birds.jpg);
+    background-size: 600px;*/
+}
+
+.grid-item {
+    border: 5px solid #e0eaf9;
+    width: 150px;
+    height: 150px;
+    padding: 0px;
+    font-size: 30px;
+    text-align: center;
+
+    background-color: whitesmoke;
+    background-image: url(images/sun-hi.png);
+    background-size: cover;
+    background-size: 100% 100%;
+    background-repeat: space;
+}
+
+.grid-item img {
+    width: 150px;
+    height: 150px;
+    padding: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.grid-item img.letter {
+    width: 50px;
+    height: 50px;
+    padding-top: 50px;
+}
+
+img.letter#I {
+    width: 25px;
+}
+
+/***************************************************************************************************************************************/
+/*Controls Grid*/
+/***************************************************************************************************************************************/
+
+.controls-grid-container {
+    display: inline-flex;
+    grid-template-columns: auto auto auto auto;
+    margin-right: auto;
+    margin-left: auto;
+    height: 80PX;
+    width: 500px;
+    border-width: 0px 18px 18px 18px;
+    border-color: #e0eaf9;
+    border-style: solid;
+    padding: 0px;
+    border-radius: 0px 0px 5px 5px;
+    background-color: white;
+}
+
+.controls-grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    text-align: center;
+}
+
+#console {
+    width: 540px;
+    height: 60PX;
+    padding: 10px;
+}
+
+#play,
+#stop,
+#playagain {
+    height: 80px;
+    width: 80px;
+}
+
+#game-console {
+    height: 80px;
+    width: 540px;
+    min-width: 540px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.mini-controls {
+    height: 15px;
+    width: 15px;
+}
+
+#play {
+    opacity: 1;
+}
+
+#stop {
+    height: 80px;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+
+#playagain {
+    height: 80px;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+
+.controls-instructions {
+    font-size: 0.8em;
+    ;
+}
+
+/***************************************************************************************************************************************/
+/*How To Section*/
+/***************************************************************************************************************************************/
+
+#howto-section {
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 1.2em;
+}
